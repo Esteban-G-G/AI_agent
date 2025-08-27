@@ -2,6 +2,7 @@
 
 import unittest
 from pkg.calculator import Calculator
+from functions.get_files_info import get_files_info
 
 
 class TestCalculator(unittest.TestCase):
@@ -44,6 +45,25 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.calculator.evaluate("+ 3")
 
+class TestFunctions(unittest.TestCase):
+    def test_current_directory(self):
+        print('Result for current directory:')
+        print(get_files_info("calculator","pkg"))
+        print()
+    
+    def test_pkg_directory():
+        print("Result for 'pkg' directory:")
+        print(get_files_info("calculator", "pkg"))
+        print()
+    
+    def test_absolute_path():
+        print("Result for '/bin' directory:")
+        print(get_files_info("calculator", "/bin"))
+        print()
+
+    def test_relative_path():
+        print("Result for '../' directory:")
+        print(get_files_info("calculator", "../"))
 
 if __name__ == "__main__":
     unittest.main()
